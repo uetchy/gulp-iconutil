@@ -29,7 +29,7 @@ module.exports = (options = {}) ->
     for icon in icons
       child_process.execFileSync '/bin/cp', [icon.path, iconsetPath]
 
-    program = spawn 'iconutil', ['-c', 'icns', iconsetPath]
+    program = spawn '/usr/bin/iconutil', ['-c', 'icns', iconsetPath]
     program.stdout.on 'end', =>
       icns = new gutil.File
         cwd: icons[0].cwd

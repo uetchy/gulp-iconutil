@@ -42,7 +42,7 @@ module.exports = function(options) {
       icon = icons[i];
       child_process.execFileSync('/bin/cp', [icon.path, iconsetPath]);
     }
-    program = spawn('iconutil', ['-c', 'icns', iconsetPath]);
+    program = spawn('/usr/bin/iconutil', ['-c', 'icns', iconsetPath]);
     return program.stdout.on('end', (function(_this) {
       return function() {
         var icns;
