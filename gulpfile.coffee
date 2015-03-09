@@ -1,7 +1,6 @@
 gulp     = require 'gulp'
 plumber  = require 'gulp-plumber'
 coffee   = require 'gulp-coffee'
-iconutil = require './'
 
 gulp.task 'build', ->
   gulp.src 'src/**/*.coffee'
@@ -11,3 +10,5 @@ gulp.task 'build', ->
 
 gulp.task 'watch', ['build'], ->
   gulp.watch 'src/**/*.coffee', ['build']
+
+gulp.task 'default', ['watch']
