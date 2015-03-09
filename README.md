@@ -30,7 +30,7 @@ When you pass .png files through `iconutil()`, these files must be named like __
 
 ### Create .icns from .sketch w/ [gulp-sketch](https://github.com/cognitom/gulp-sketch)
 
-```node:gulpfile.coffee
+```coffee
 gulp     = require "gulp"
 sketch   = require "gulp-sketch"
 iconutil = require "gulp-iconutil"
