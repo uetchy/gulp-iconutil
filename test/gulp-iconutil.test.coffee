@@ -25,5 +25,7 @@ describe 'gulp-iconutil', ->
     it 'should create icns', (done) ->
       iconFiles()
         .pipe iconutil()
-        .pipe gulp.dest './'
+        .pipe assert.first (data) ->
+          expected = fs.readFileSync(__dirname + '/fixtures/output.icns')
+          expect(data.contents).to.eql(expected)
         .pipe assert.end(done)
