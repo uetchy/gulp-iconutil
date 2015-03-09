@@ -30,6 +30,8 @@ When you pass .png files through `iconutil()`, these files must be named like __
 
 ### Create .icns from .sketch w/ [gulp-sketch](https://github.com/cognitom/gulp-sketch)
 
+.sketch files, which use for creating icons, must have artboard or slice named like __icon_512x512__ or __icon_128x128__.
+
 ```coffee
 gulp     = require "gulp"
 sketch   = require "gulp-sketch"
