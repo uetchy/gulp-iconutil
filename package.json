@@ -10,7 +10,10 @@
     "gulp",
     "iconutil",
     "icns",
-    "icon"
+    "icons",
+    "osx",
+    "mac",
+    "design"
   ],
   "main": "gulp-iconutil.js",
   "scripts": {
