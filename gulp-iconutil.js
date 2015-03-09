@@ -1,4 +1,4 @@
-var PLUGIN_NAME, child_process, del, fs, gutil, path, spawn, temporary, through;
+var File, PLUGIN_NAME, PluginError, child_process, del, fs, gutil, path, spawn, temporary, through;
 
 fs = require('fs');
 
@@ -6,11 +6,15 @@ path = require('path');
 
 through = require('through2');
 
-gutil = require('gulp-util');
-
 temporary = require('temporary');
 
 del = require('del');
+
+gutil = require('gulp-util');
+
+PluginError = gutil.PluginError;
+
+File = gutil.File;
 
 child_process = require('child_process');
 
@@ -18,22 +22,35 @@ spawn = child_process.spawn;
 
 PLUGIN_NAME = 'gulp-iconutil';
 
-module.exports = function(options) {
+module.exports = function(icnsName, options) {
   var bufferContents, endStream, icons;
   if (options == null) {
     options = {};
   }
+  if (!icnsName) {
+    throw new PluginError(PLUGIN_NAME, 'Missing icns name');
+  }
   icons = [];
   bufferContents = function(file, encoding, callback) {
+    if (file.isNull()) {
+      callback();
+      return;
+    }
     if (file.isStream()) {
-      this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streams are not supported'));
-      return callback();
+      this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported'));
+      callback();
+      return;
     }
     icons.push(file);
     return callback();
   };
   endStream = function(callback) {
     var i, icon, iconset, iconsetPath, len, outputPath, program, tmpDir;
+    if (!icons.length) {
+      console.log('nothing');
+      callback();
+      return;
+    }
     tmpDir = new temporary.Dir();
     iconsetPath = path.join(tmpDir.path, 'tmp.iconset');
     iconset = fs.mkdirSync(iconsetPath);
@@ -46,10 +63,10 @@ module.exports = function(options) {
     return program.stdout.on('end', (function(_this) {
       return function() {
         var icns;
-        icns = new gutil.File({
+        icns = new File({
           cwd: icons[0].cwd,
           base: icons[0].base,
-          path: path.join(icons[0].base, 'output.icns'),
+          path: path.join(icons[0].base, icnsName),
           contents: fs.readFileSync(outputPath)
         });
         _this.push(icns);
