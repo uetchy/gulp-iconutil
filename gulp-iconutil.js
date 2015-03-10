@@ -47,7 +47,6 @@ module.exports = function(icnsName, options) {
   endStream = function(callback) {
     var i, icon, iconset, iconsetPath, len, outputPath, program, tmpDir;
     if (!icons.length) {
-      console.log('nothing');
       callback();
       return;
     }
@@ -57,7 +56,7 @@ module.exports = function(icnsName, options) {
     outputPath = path.join(tmpDir.path, 'tmp.icns');
     for (i = 0, len = icons.length; i < len; i++) {
       icon = icons[i];
-      child_process.execFileSync('/bin/cp', [icon.path, iconsetPath]);
+      fs.writeFileSync(path.join(iconsetPath, path.basename(icon.path)), icon.contents);
     }
     program = spawn('/usr/bin/iconutil', ['-c', 'icns', iconsetPath]);
     return program.stdout.on('end', (function(_this) {

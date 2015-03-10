@@ -31,7 +31,6 @@ module.exports = (icnsName, options = {}) ->
 
   endStream = (callback) ->
     unless icons.length
-      console.log 'nothing'
       callback()
       return
 
@@ -41,7 +40,7 @@ module.exports = (icnsName, options = {}) ->
     outputPath = path.join tmpDir.path, 'tmp.icns'
 
     for icon in icons
-      child_process.execFileSync '/bin/cp', [icon.path, iconsetPath]
+      fs.writeFileSync path.join(iconsetPath, path.basename(icon.path)), icon.contents
 
     program = spawn '/usr/bin/iconutil', ['-c', 'icns', iconsetPath]
     program.stdout.on 'end', =>
