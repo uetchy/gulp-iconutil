@@ -5,7 +5,7 @@ gutil    = require 'gulp-util'
 {File}   = gutil
 array    = require 'stream-array'
 assert   = require 'stream-assert'
-iconutil = require '../'
+iconutil = require '../lib/gulp-iconutil'
 
 iconFiles = ->
   array([
