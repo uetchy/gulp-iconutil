@@ -22,7 +22,7 @@
     "gulp",
     "iconutil",
     "icns",
-    "icons",
+    "icon",
     "osx",
     "mac",
     "design"
@@ -35,10 +35,6 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "gulp": "^3.8.11",
-    "gulp-mocha": "^3.0.1",
-    "gulp-plumber": "^1.0.0",
-    "gulp-util": "^3.0.4",
     "mocha": "^3.0.2",
     "stream-array": "^1.0.1",
     "stream-assert": "^2.0.2",
