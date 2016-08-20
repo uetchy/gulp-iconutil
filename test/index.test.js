@@ -9,14 +9,6 @@ import iconutil from '..'
 
 const iconFiles = () => {
 	const iconSize = [
-		'512x512',
-		'512x512@2x',
-		'256x256',
-		'256x256@2x',
-		'128x128',
-		'128x128@2x',
-		'32x32',
-		'32x32@2x',
 		'16x16',
 		'16x16@2x'
 	]
