@@ -3,8 +3,7 @@
   "version": "1.1.0",
   "description": "gulp-iconutil creates .icns from .iconset",
   "scripts": {
-    "test": "mocha test/ && xo",
-    "prepublish": "gulp build"
+    "test": "mocha test/ && xo"
   },
   "xo": {
     "semicolon": false,
@@ -12,7 +11,7 @@
       "mocha"
     ]
   },
-  "main": "lib/gulp-iconutil",
+  "main": ".",
   "author": "Yasuaki Uechi <uetchy@randompaper.co>",
   "license": "MIT",
   "repository": {
