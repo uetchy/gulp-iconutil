@@ -1,11 +1,11 @@
-const {expect} = require('chai')
-const fs = require('fs')
-const {join} = require('path')
-const {File} = require('gulp-util')
-const streamArray = require('stream-array')
-const assert = require('stream-assert')
+import fs from 'fs'
+import {join} from 'path'
+import {File} from 'gulp-util'
+import streamArray from 'stream-array'
+import streamAssert from 'stream-assert'
+import test from 'ava'
 
-const iconutil = require('..')
+import iconutil from '..'
 
 const iconFiles = () => {
 	const iconSize = [
@@ -30,31 +30,28 @@ const iconFiles = () => {
 	}))
 }
 
-describe('gulp-iconutil', () => {
-	describe('iconutil()', () => {
-		it('should throw error when icnsName is missing', () => {
-			expect(iconutil).to.throw(Error)
-		})
+test('should throw error when icnsName is missing', t => {
+	t.throws(iconutil, Error)
+})
 
-		it('should throw error', done => {
-			const stream = iconutil('app.icns')
-			stream
-				.pipe(assert.length(0))
-				.pipe(assert.end(done))
-			stream.write(new File())
-			stream.end()
-		})
+test.cb('should throw error', t => {
+	const stream = iconutil('app.icns')
+	stream
+		.pipe(streamAssert.length(0))
+		.pipe(streamAssert.end(t.end))
+	stream.write(new File())
+	stream.end()
+})
 
-		it('should create icns', done => {
-			const icnsName = 'custom.icns'
-			iconFiles()
-				.pipe(iconutil(icnsName))
-				.pipe(assert.first(data => {
-					const expected = fs.readFileSync(join(__dirname, '/fixtures/app.icns'))
-					expect(data.contents).to.deep.equal(expected)
-					expect(data.relative).to.eql(icnsName)
-				}))
-				.pipe(assert.end(done))
-		})
-	})
+test.cb('should create icns', t => {
+	const icnsName = 'custom.icns'
+	const expected = fs.readFileSync(join(__dirname, '/fixtures/app.icns'))
+
+	iconFiles()
+		.pipe(iconutil(icnsName))
+		.pipe(streamAssert.first(data => {
+			t.deepEqual(data.contents, expected)
+			t.is(data.relative, icnsName)
+		}))
+		.pipe(streamAssert.end(t.end))
 })
