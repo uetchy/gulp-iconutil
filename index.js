@@ -54,9 +54,7 @@ module.exports = icnsName => {
 				contents: fs.readFileSync(outputPath)
 			})
 			self.push(icns)
-			del(tmpDir.path, {force: true}, () => {
-				callback()
-			})
+			del(tmpDir.path, {force: true}).then(() => callback())
 		})
 	}
 
