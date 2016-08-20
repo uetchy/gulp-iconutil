@@ -2,24 +2,23 @@
 
 gulp-iconutil is a [__Gulp__](http://gulpjs.com/) plugin that provides `iconutil` wrapper.
 
-This plugin requires `iconutil` command in OS X.
-
-## Installation
-
-```console
-$ npm install --save-dev gulp-iconutil
-```
+This plugin requires macOS's `iconutil` command.
 
 ## Usage
 
-```coffee
-gulp     = require "gulp"
-iconutil = require "gulp-iconutil"
+```
+npm install gulp-iconutil
+```
 
-gulp.task "icons", ->
-  gulp.src "./app.iconset/icon_*.png"
-    .pipe iconutil("app.icns")
-    .pipe gulp.dest "./"
+```js
+const gulp = require('gulp')
+const iconutil = require('gulp-iconutil')
+
+gulp.task('icon', () => {
+	gulp.src('./app.iconset/icon_*.png')
+		.pipe(iconutil('app.icns'))
+		.pipe(gulp.dest('./'))
+})
 ```
 
 When you pass .png files through `iconutil()`, these files must be named like __icon_512x512.png__ or __icon_128x128@2x.png__.
@@ -28,22 +27,23 @@ When you pass .png files through `iconutil()`, these files must be named like __
 
 .sketch files, which use for creating icons, must have artboard or slice named like __icon_512x512__ or __icon_128x128__.
 
-```coffee
-gulp     = require "gulp"
-sketch   = require "gulp-sketch"
-iconutil = require "gulp-iconutil"
+```js
+const gulp = require('gulp')
+const sketch = require('gulp-sketch')
+const iconutil = require('gulp-iconutil')
 
-gulp.task "icons", ->
-  gulp.src "./icons/sketch/*.sketch"
-    .pipe sketch
-      exports: "artboards"
-      format: "png"
-      scales: "1.0,2.0"
-    .pipe iconutil("app.icns")
-    .pipe gulp.dest "./icons"
+gulp.task('icon', () => {
+	gulp.src('./icons/sketch/*.sketch')
+		.pipe(sketch({
+      exports: 'artboards',
+      format: 'png',
+      scales: '1.0,2.0'
+    }))
+		.pipe(iconutil('app.icns'))
+		.pipe(gulp.dest('./'))
 ```
 
-## Testing
+## Test
 
 ```console
 $ git clone https://github.com/uetchy/gulp-iconutil.git
@@ -52,7 +52,7 @@ $ npm install
 $ npm test
 ```
 
-## Contributing
+## Contribution
 
 1. Fork it ( https://github.com/uetchy/gulp-iconutil/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
