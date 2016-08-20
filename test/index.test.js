@@ -42,7 +42,7 @@ test.cb('should create icns', t => {
 	iconFiles()
 		.pipe(iconutil(icnsName))
 		.pipe(streamAssert.first(data => {
-			t.deepEqual(data.contents, expected)
+			t.is(data.contents.toString(), expected.toString())
 			t.is(data.relative, icnsName)
 		}))
 		.pipe(streamAssert.end(t.end))
