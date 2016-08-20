@@ -17,9 +17,9 @@ const gulp = require('gulp')
 const iconutil = require('gulp-iconutil')
 
 gulp.task('icon', () => {
-	gulp.src('./app.iconset/icon_*.png')
-		.pipe(iconutil('app.icns'))
-		.pipe(gulp.dest('./'))
+  gulp.src('./app.iconset/icon_*.png')
+    .pipe(iconutil('app.icns'))
+    .pipe(gulp.dest('./'))
 })
 ```
 
@@ -35,14 +35,14 @@ const sketch = require('gulp-sketch')
 const iconutil = require('gulp-iconutil')
 
 gulp.task('icon', () => {
-	gulp.src('./icons/sketch/*.sketch')
-		.pipe(sketch({
+  gulp.src('./icons/sketch/*.sketch')
+    .pipe(sketch({
       exports: 'artboards',
       format: 'png',
       scales: '1.0,2.0'
     }))
-		.pipe(iconutil('app.icns'))
-		.pipe(gulp.dest('./'))
+    .pipe(iconutil('app.icns'))
+    .pipe(gulp.dest('./'))
 ```
 
 ## Test
