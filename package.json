@@ -18,7 +18,7 @@
   "main": "lib/gulp-iconutil.js",
   "scripts": {
     "test": "$(npm bin)/mocha --compilers coffee:coffee-script/register test/",
-    "prepublish": "$(npm bin)/gulp build"
+    "prepublish": "gulp build"
   },
   "author": "Yasuaki Uechi <uetchy@randompaper.co>",
   "license": "MIT",
@@ -29,14 +29,14 @@
     "through2": "^0.6.3"
   },
   "devDependencies": {
-    "chai": "^2.1.2",
+    "chai": "^3.5.0",
     "coffee-script": "^1.9.1",
     "gulp": "^3.8.11",
     "gulp-coffee": "^2.3.1",
-    "gulp-mocha": "^2.0.0",
+    "gulp-mocha": "^3.0.1",
     "gulp-plumber": "^1.0.0",
     "gulp-util": "^3.0.4",
-    "mocha": "^2.2.1",
+    "mocha": "^3.0.2",
     "stream-array": "^1.0.1",
     "stream-assert": "^2.0.2"
   }

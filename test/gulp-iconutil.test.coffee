@@ -11,14 +11,54 @@ iconFiles = ->
   array([
     new File
       cwd: __dirname,
-      base: __dirname + '/fixtures/',
-      path: __dirname + '/fixtures/icon_512x512.png',
-      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/icon_512x512.png'))
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_512x512.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_512x512.png'))
     new File
       cwd: __dirname,
-      base: __dirname + '/fixtures/',
-      path: __dirname + '/fixtures/icon_512x512@2x.png',
-      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/icon_512x512@2x.png'))
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_512x512@2x.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_512x512@2x.png'))
+    new File
+      cwd: __dirname,
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_256x256.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_256x256.png'))
+    new File
+      cwd: __dirname,
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_256x256@2x.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_256x256@2x.png'))
+    new File
+      cwd: __dirname,
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_128x128.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_128x128.png'))
+    new File
+      cwd: __dirname,
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_128x128@2x.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_128x128@2x.png'))
+    new File
+      cwd: __dirname,
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_32x32.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_32x32.png'))
+    new File
+      cwd: __dirname,
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_32x32@2x.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_32x32@2x.png'))
+    new File
+      cwd: __dirname,
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_16x16.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_16x16.png'))
+    new File
+      cwd: __dirname,
+      base: __dirname + '/fixtures/app.iconset',
+      path: 'icon_16x16@2x.png',
+      contents: new Buffer(fs.readFileSync(__dirname + '/fixtures/app.iconset/icon_16x16@2x.png'))
   ])
 
 describe 'gulp-iconutil', ->
@@ -39,7 +79,7 @@ describe 'gulp-iconutil', ->
       iconFiles()
         .pipe iconutil(icnsName)
         .pipe assert.first (data) ->
-          expected = fs.readFileSync __dirname + '/fixtures/output.icns'
-          expect(data.contents).to.eql(expected)
+          expected = fs.readFileSync __dirname + '/fixtures/app.icns'
+          expect(data.contents).to.deep.equal(expected)
           expect(data.relative).to.eql(icnsName)
         .pipe assert.end(done)

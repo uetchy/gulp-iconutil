@@ -15,11 +15,7 @@ $ npm install --save-dev gulp-iconutil
 ```coffee
 gulp     = require "gulp"
 iconutil = require "gulp-iconutil"
-```
 
-then:
-
-```coffee
 gulp.task "icons", ->
   gulp.src "./app.iconset/icon_*.png"
     .pipe iconutil("app.icns")
