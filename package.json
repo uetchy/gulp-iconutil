@@ -2,6 +2,19 @@
   "name": "gulp-iconutil",
   "version": "1.1.0",
   "description": "gulp-iconutil creates .icns from .iconset",
+  "scripts": {
+    "test": "mocha test/ && xo",
+    "prepublish": "gulp build"
+  },
+  "xo": {
+    "semicolon": false,
+    "envs": [
+      "mocha"
+    ]
+  },
+  "main": "lib/gulp-iconutil",
+  "author": "Yasuaki Uechi <uetchy@randompaper.co>",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/uetchy/gulp-iconutil"
@@ -15,13 +28,6 @@
     "mac",
     "design"
   ],
-  "main": "lib/gulp-iconutil.js",
-  "scripts": {
-    "test": "$(npm bin)/mocha --compilers coffee:coffee-script/register test/",
-    "prepublish": "gulp build"
-  },
-  "author": "Yasuaki Uechi <uetchy@randompaper.co>",
-  "license": "MIT",
   "dependencies": {
     "del": "^1.1.1",
     "gulp-util": "^3.0.4",
@@ -30,14 +36,13 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "coffee-script": "^1.9.1",
     "gulp": "^3.8.11",
-    "gulp-coffee": "^2.3.1",
     "gulp-mocha": "^3.0.1",
     "gulp-plumber": "^1.0.0",
     "gulp-util": "^3.0.4",
     "mocha": "^3.0.2",
     "stream-array": "^1.0.1",
-    "stream-assert": "^2.0.2"
+    "stream-assert": "^2.0.2",
+    "xo": "^0.16.0"
   }
 }
