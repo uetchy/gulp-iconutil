@@ -37,12 +37,11 @@ test.cb('should throw error', t => {
 
 test.cb('should create icns', t => {
 	const icnsName = 'custom.icns'
-	const expected = fs.readFileSync(join(__dirname, '/fixtures/app.icns'))
 
 	iconFiles()
 		.pipe(iconutil(icnsName))
 		.pipe(streamAssert.first(data => {
-			t.is(data.contents.toString(), expected.toString())
+			t.true(String(data.contents).indexOf('icns\u0000\u0000') > -1)
 			t.is(data.relative, icnsName)
 		}))
 		.pipe(streamAssert.end(t.end))
