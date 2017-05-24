@@ -35,11 +35,11 @@
     "through2": "^2.0.1"
   },
   "devDependencies": {
-    "ava": "^0.16.0",
+    "ava": "^0.19.1",
     "coveralls": "^2.11.12",
-    "nyc": "^8.1.0",
+    "nyc": "^10.3.2",
     "stream-array": "^1.0.1",
     "stream-assert": "^2.0.2",
-    "xo": "^0.16.0"
+    "xo": "^0.18.2"
   }
 }
