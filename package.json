@@ -3,17 +3,11 @@
   "version": "1.2.0",
   "description": "gulp-iconutil creates .icns from .iconset",
   "scripts": {
-    "test": "nyc ava && xo",
+    "test": "nyc ava",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
-  "xo": {
-    "semicolon": false,
-    "ignores": [
-      "example/**"
-    ]
-  },
   "main": ".",
-  "author": "Yasuaki Uechi <uetchy@randompaper.co>",
+  "author": "Yasuaki Uechi <y@uechi.io>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -29,17 +23,16 @@
     "design"
   ],
   "dependencies": {
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "gulp-util": "^3.0.4",
     "temporary": "0.0.8",
     "through2": "^2.0.1"
   },
   "devDependencies": {
-    "ava": "^0.19.1",
-    "coveralls": "^2.11.12",
-    "nyc": "^10.3.2",
+    "ava": "^0.25.0",
+    "coveralls": "^3.0.0",
+    "nyc": "^11.7.1",
     "stream-array": "^1.0.1",
-    "stream-assert": "^2.0.2",
-    "xo": "^0.18.2"
+    "stream-assert": "^2.0.2"
   }
 }
