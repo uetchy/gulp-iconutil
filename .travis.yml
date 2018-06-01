@@ -1,7 +1,7 @@
 os: osx
 language: node_js
 node_js:
-  - tip
+  - stable
 after_success:
   - npm run coverage
 notifications:
