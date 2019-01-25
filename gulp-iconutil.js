@@ -1,5 +1,5 @@
 const fs = require('fs')
-const path = require('path')
+const { join, basename } = require('path')
 const { spawn } = require('child_process')
 const through = require('through2')
 const temporary = require('temporary')
@@ -8,7 +8,7 @@ const { PluginError, File } = require('gulp-util')
 
 const PLUGIN_NAME = 'gulp-iconutil'
 
-module.exports = icnsName => {
+module.exports = function iconUtil(icnsName) {
   if (!icnsName) {
     throw new PluginError(PLUGIN_NAME, 'Missing icns name')
   }
@@ -37,30 +37,25 @@ module.exports = icnsName => {
       return callback()
     }
 
-    const self = this
-
     const tmpDir = new temporary.Dir()
-    const iconsetPath = path.join(tmpDir.path, 'tmp.iconset')
-    const outputPath = path.join(tmpDir.path, 'tmp.icns')
+    const iconsetPath = join(tmpDir.path, 'tmp.iconset')
+    const outputPath = join(tmpDir.path, 'tmp.icns')
 
     fs.mkdirSync(iconsetPath)
 
-    icons.forEach(icon => {
-      fs.writeFileSync(
-        path.join(iconsetPath, path.basename(icon.path)),
-        icon.contents
-      )
-    })
+    for (const icon of icons) {
+      fs.writeFileSync(join(iconsetPath, basename(icon.path)), icon.contents)
+    }
 
     const program = spawn('/usr/bin/iconutil', ['-c', 'icns', iconsetPath])
     program.stdout.on('end', () => {
       const icns = new File({
         cwd: icons[0].cwd,
         base: icons[0].base,
-        path: path.join(icons[0].base, icnsName),
+        path: join(icons[0].base, icnsName),
         contents: fs.readFileSync(outputPath),
       })
-      self.push(icns)
+      this.push(icns)
       del(tmpDir.path, { force: true }).then(() => callback())
     })
   }

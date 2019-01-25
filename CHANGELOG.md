@@ -8,8 +8,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* don’t ignore lib ([7942664](https://github.com/uetchy/gulp-iconutil/commit/7942664))
+- don’t ignore lib ([7942664](https://github.com/uetchy/gulp-iconutil/commit/7942664))
 
 ### Features
 
-* add example code ([6e29cd2](https://github.com/uetchy/gulp-iconutil/commit/6e29cd2))
+- add example code ([6e29cd2](https://github.com/uetchy/gulp-iconutil/commit/6e29cd2))

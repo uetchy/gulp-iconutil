@@ -15,7 +15,7 @@ const iconFiles = () => {
         cwd: __dirname,
         base: join(__dirname, '/fixtures/app.iconset'),
         path: `icon_${size}.png`,
-        contents: new Buffer(
+        contents: Buffer.from(
           fs.readFileSync(
             join(__dirname, `/fixtures/app.iconset/icon_${size}.png`)
           )
