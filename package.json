@@ -11,13 +11,13 @@
   "dependencies": {
     "del": "^3.0.0",
     "gulp-util": "^3.0.4",
-    "temporary": "0.0.8",
+    "temporary": "1.0.0",
     "through2": "^3.0.0"
   },
   "devDependencies": {
-    "ava": "^1.1.0",
+    "ava": "^1.2.1",
     "coveralls": "^3.0.1",
-    "nyc": "^13.1.0",
+    "nyc": "^13.3.0",
     "stream-array": "^1.0.1",
     "stream-assert": "^2.0.2"
   },

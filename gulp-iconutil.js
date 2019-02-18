@@ -12,6 +12,7 @@ module.exports = function iconUtil(icnsName) {
   if (!icnsName) {
     throw new PluginError(PLUGIN_NAME, 'Missing icns name')
   }
+
   const icons = []
 
   const bufferContents = function(file, encoding, callback) {
