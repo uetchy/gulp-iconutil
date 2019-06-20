@@ -1,6 +1,6 @@
 # gulp-iconutil
 
-[![Build Status](https://travis-ci.org/uetchy/gulp-iconutil.svg?branch=master)](https://travis-ci.org/uetchy/gulp-iconutil) [![Coverage Status](https://coveralls.io/repos/github/uetchy/gulp-iconutil/badge.svg?branch=master)](https://coveralls.io/github/uetchy/gulp-iconutil?branch=master) [![npm version](https://badge.fury.io/js/gulp-iconutil.svg)](https://badge.fury.io/js/gulp-iconutil)
+[![Build Status](https://travis-ci.com/uetchy/gulp-iconutil.svg?branch=master)](https://travis-ci.com/uetchy/gulp-iconutil) [![Coverage Status](https://coveralls.io/repos/github/uetchy/gulp-iconutil/badge.svg?branch=master)](https://coveralls.io/github/uetchy/gulp-iconutil?branch=master) [![npm version](https://badge.fury.io/js/gulp-iconutil.svg)](https://badge.fury.io/js/gulp-iconutil)
 
 gulp-iconutil is a [**Gulp**](http://gulpjs.com/) plugin that provides `iconutil` wrapper.
 
