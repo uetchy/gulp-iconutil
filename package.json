@@ -1,7 +1,7 @@
 {
   "name": "gulp-iconutil",
   "description": "gulp-iconutil creates .icns from .iconset",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "Yasuaki Uechi <y@uechi.io>",
   "main": "./gulp-iconutil.js",
   "scripts": {
