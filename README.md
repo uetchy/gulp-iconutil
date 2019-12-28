@@ -13,15 +13,15 @@ npm install gulp-iconutil
 ```
 
 ```js
-const gulp = require('gulp')
-const iconutil = require('gulp-iconutil')
+const gulp = require("gulp");
+const iconutil = require("gulp-iconutil");
 
-gulp.task('icon', () => {
+gulp.task("icon", () => {
   gulp
-    .src('./app.iconset/icon_*.png')
-    .pipe(iconutil('app.icns'))
-    .pipe(gulp.dest('./'))
-})
+    .src("./app.iconset/icon_*.png")
+    .pipe(iconutil("app.icns"))
+    .pipe(gulp.dest("./"));
+});
 ```
 
 When you pass .png files through `iconutil()`, these files must be named like **icon_512x512.png** or **icon_128x128@2x.png**.
